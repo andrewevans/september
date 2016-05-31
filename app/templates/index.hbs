@@ -1,0 +1,7 @@
+<h1>Chapters</h1>
+
+{{filter-listing filteredList=filteredList
+autoComplete=(action 'autoComplete') search=(action 'search')}}
+{{#each model as |chapterUnit|}}
+  {{chapter-listing chapter=chapterUnit}}
+{{/each}}

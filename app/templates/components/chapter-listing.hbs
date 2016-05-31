@@ -1,0 +1,9 @@
+<h2>{{chapter.title}}</h2>
+<p>Length: {{chapter-question-length chapter.length}} - {{chapter.length}}</p>
+
+{{#if isImageShowing}}
+    <p><img src={{chapter.image}} width="500"></p>
+    <button {{action "imageHide"}}>Hide image</button>
+{{else}}
+    <button {{action "imageShow"}}>Show image</button>
+{{/if}}
