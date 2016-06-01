@@ -1,36 +1,43 @@
 export default function() {
 
-  this.get('/chapters', function() {
-    return {
-      data: [{
-        type: 'chapters',
-        id: 1,
-        attributes: {
-          title: 'Are You High Risk?',
-          description: 'Take this assessment.',
-          location: 'San Francisco',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
-        }
-      }, {
-        type: 'chapters',
-        id: 2,
-        attributes: {
-          title: 'How is Your Health?',
-          description: 'Take this health assessment.',
-          location: 'San Francisco',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
-        }
-      }, {
-        type: 'chapters',
-        id: 3,
-        attributes: {
-          title: 'How Are You Feeling Today?',
-          description: 'Let\'s talk about you are doing.',
-          location: 'New York',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
-        }
-      }]
-    };
+  this.get('/chapters', function(db, request) {
+    let chapters = [{
+      type: 'chapters',
+      id: 1,
+      attributes: {
+        title: 'Are You High Risk?',
+        description: 'Take this assessment.',
+        location: 'San Francisco',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+      }
+    }, {
+      type: 'chapters',
+      id: 2,
+      attributes: {
+        title: 'How is Your Health?',
+        description: 'Take this health assessment.',
+        location: 'San Francisco',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+      }
+    }, {
+      type: 'chapters',
+      id: 3,
+      attributes: {
+        title: 'How Are You Feeling Today?',
+        description: 'Let\'s talk about you are doing.',
+        location: 'New York',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+      }
+    }];
+
+    if (request.queryParams.location !== undefined) {
+      let filteredChapters = chapters.filter(function (i) {
+        return i.attributes.location.toLowerCase().indexOf(request.queryParams.location.toLowerCase()) !== -1;
+      });
+      return {data: filteredChapters};
+    } else {
+      return {data: chapters};
+    }
   });
 
   // These comments are here to help you get started. Feel free to delete them.
