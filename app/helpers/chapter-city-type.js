@@ -6,7 +6,6 @@ const chapterCityTypes = [
 ];
 
 export function chapterCityType([type]/*, hash*/) {
-  window.console.log(chapterCityTypes);
   if (chapterCityTypes.contains(type)) {
     return 'Metropolis';
   }
