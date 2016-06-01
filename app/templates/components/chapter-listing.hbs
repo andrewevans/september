@@ -1,0 +1,9 @@
+<h2>{{chapter.title}}</h2>
+<p>{{chapter.description}}</p>
+<p>{{chapter.location}}</p>
+
+{{#if isImageShowing}}
+    <p><img src={{chapter.image}} width="500"></p>
+{{else}}
+  <button {{action "imageShow"}}>Show image</button>
+{{/if}}
