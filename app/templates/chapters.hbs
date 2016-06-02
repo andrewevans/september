@@ -1,0 +1,9 @@
+{{outlet}}
+
+<p>Here are your chapters:</p>
+<ul>
+    {{#each model as |chapter|}}
+        <li>{{#link-to "chapters.chapter" chapter}}{{chapter.title}}{{/link-to}}</li>
+    {{/each}}
+</ul>
+
