@@ -1,8 +1,53 @@
 export default function() {
 
+  let questions = [{
+    type: 'questions',
+    id: 1001,
+    attributes: {
+      title: 'Are you pregnant?',
+      description: '',
+      type: 'select',
+      options: [
+        'Yes',
+        'No',
+        'I don\'t know',
+        ],
+    }
+  }, {
+    type: 'questions',
+    id: 1015,
+    attributes: {
+      title: 'How old are you?',
+      description: '',
+      type: 'input',
+      options: [],
+    }
+  }, {
+    type: 'questions',
+    id: 1007,
+    attributes: {
+      title: 'Select all the ailments that you have',
+      description: '',
+      type: 'checkbox',
+      options: [{
+        title: 'Depression',
+        isChecked: false,
+      }, {
+        title: 'Anxiety',
+        isChecked: false,
+      }, {
+        title: 'Cat scratch fever',
+        isChecked: false,
+      }, {
+        title: 'Insane in the membrane',
+        isChecked: false,
+      }],
+    },
+  }];
+
   let chapters = [{
     type: 'chapters',
-    id: 1,
+    id: 103,
     attributes: {
       title: 'Are You High Risk?',
       description: 'Take this assessment.',
@@ -11,7 +56,7 @@ export default function() {
     }
   }, {
     type: 'chapters',
-    id: 2,
+    id: 115,
     attributes: {
       title: 'How is Your Health?',
       description: 'Take this health assessment.',
@@ -20,12 +65,21 @@ export default function() {
     }
   }, {
     type: 'chapters',
-    id: 3,
+    id: 117,
     attributes: {
       title: 'How Are You Feeling Today?',
       description: 'Let\'s talk about you are doing.',
       location: 'New York',
       image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+    }
+  }, {
+    type: 'chapters',
+    id: 118,
+    attributes: {
+      title: 'What Kind of Doctor is Right for You',
+      description: 'Picking a doctor that fits your needs is important',
+      location: 'Los Angeles',
+      image: '',
     }
   }];
 
@@ -43,6 +97,10 @@ export default function() {
     } else {
       return {data: chapters};
     }
+  });
+
+  this.get('/questions', function(db, request) {
+    return { data: questions};
   });
 
   // These comments are here to help you get started. Feel free to delete them.
