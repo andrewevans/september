@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('chapters', function() {
+  	window.console.log('in router.js');
     this.route('chapter', { path: '/:chapter_id' });
   });
 });

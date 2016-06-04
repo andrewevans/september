@@ -31,9 +31,11 @@ export default function() {
 
   this.get('/chapters/:chapter_id', function(db, request) {
     return {data: chapters[request.params.chapter_id]};
+    window.console.log('in config.js: /chapters/:chapter_id');
   });
 
   this.get('/chapters', function(db, request) {
+    window.console.log('in config.js: /chapters');
 
     if (request.queryParams.location !== undefined) {
       let filteredChapters = chapters.filter(function (i) {
