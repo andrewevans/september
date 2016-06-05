@@ -30,8 +30,8 @@ export default function() {
   }];
 
   this.get('/chapters/:chapter_id', function(db, request) {
-    return {data: chapters[request.params.chapter_id]};
     window.console.log('in config.js: /chapters/:chapter_id');
+    return {data: chapters[0] };
   });
 
   this.get('/chapters', function(db, request) {
