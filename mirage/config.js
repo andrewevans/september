@@ -1,5 +1,5 @@
 export default function() {
-
+/*
   let questions = [{
     type: 'questions',
     id: 1001,
@@ -82,7 +82,7 @@ export default function() {
       image: '',
     }
   }];
-
+/*
   this.get('/chapters/:chapter_id', function(db, request) {
     window.console.log('in config.js: /chapters/:chapter_id');
     return {data: chapters[0] };
@@ -100,10 +100,13 @@ export default function() {
       return {data: chapters};
     }
   });
+*/
 
-  this.get('/questions', function(db, request) {
-    return { data: questions};
-  });
+this.get('/questions', (schema, request) => {
+    window.console.log('in config.js /questions');
+  return schema.questions.all();
+});
+
 
   // These comments are here to help you get started. Feel free to delete them.
 
